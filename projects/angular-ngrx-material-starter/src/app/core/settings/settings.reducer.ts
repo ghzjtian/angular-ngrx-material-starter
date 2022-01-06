@@ -33,7 +33,7 @@ const reducer = createReducer(
     actionSettingsChangeAnimationsPage,
     actionSettingsChangeAnimationsElements,
     actionSettingsChangeHour,
-    (state, action) => ({ ...state, ...action })
+    (state, action) => ({ ...state, ...action }) // 相当于复制一份 state 和 action
   ),
   on(
     actionSettingsChangeAnimationsPageDisabled,

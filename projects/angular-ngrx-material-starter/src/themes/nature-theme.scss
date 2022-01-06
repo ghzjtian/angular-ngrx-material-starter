@@ -1,5 +1,8 @@
 @use '~@angular/material' as mat;
 
+// in order: the "default" hue, a "lighter" hue, a "darker" hue, and a "text" hue.
+// define-palette: default to 500, 100, and 700
+// 在 $brown-palette 的基础上，重新定义 default,lighter, darker 的取值.
 $anms-nature-primary: mat.define-palette(mat.$brown-palette, 700, 300, 900);
 $anms-nature-accent: mat.define-palette(mat.$deep-purple-palette, 300);
 $anms-nature-warn: mat.define-palette(mat.$red-palette, 600);

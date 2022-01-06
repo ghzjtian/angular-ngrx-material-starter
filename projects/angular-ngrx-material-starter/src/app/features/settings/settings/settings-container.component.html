@@ -3,6 +3,7 @@
     <div class="col-sm-12"><h1>{{ 'anms.settings.title' | translate }}</h1></div>
   </div>
   <br>
+  <!-- 把 Observable 转化为 普通 的类型(subscribe). -->
   <ng-container *ngIf="settings$ | async as settings">
     <div class="row" rtl>
       <div class="col-md-6 group" [ngClass]="routeAnimationsElements">

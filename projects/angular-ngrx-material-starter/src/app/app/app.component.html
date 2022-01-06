@@ -20,15 +20,21 @@
 
       <div class="toolbar" [style.position]="(stickyHeader$ | async) ? 'fixed' : 'inherit'" [class.mat-elevation-z4]="(stickyHeader$ | async)">
         <mat-toolbar color="primary">
+          <!-- d-md-none: hide on md 	≥768px,lg	≥992px, xl	≥1200px, xxl	≥1400px -->
           <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
             <fa-icon icon="bars"></fa-icon>
 
           </button>
 
+          <!-- >= sm 576 就不显示 -->
           <span routerLink="" class="branding spacer center d-inline d-sm-none">
             <img [src]="logo" [alt]="logo"/></span>
+
+            <!-- >= 576 && <= 768 就显示 短标题 -->
           <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo" [alt]="logo"/> {{
             'anms.title.short' | translate }}</span>
+
+            <!-- >= 768 就显示 长标题 -->
           <span routerLink="" class="branding spacer d-none d-md-inline"><img [src]="logo"[alt]="logo" /> {{ 'anms.title.long' | translate
             }}</span>
 
