@@ -1,9 +1,12 @@
 @use '~@angular/material' as mat;
 
 @mixin anms-big-input-component-theme($theme) {
+  // $theme 下的 primary, accent, warn 是 object, 由 mat-light-theme 生成的.
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
+  // 根据 _theming.scss 中对 mat-light-theme 的定义, $foreground 是个 Object, 在文件 _palette.scss 中
   $foreground: map-get($theme, foreground);
+  // $background 原理同上
   $background: map-get($theme, background);
 
   anms-big-input {

@@ -55,6 +55,7 @@ export class SettingsEffects {
     }, 60_000)
   );
 
+  // 保存最新的 setting 数据
   persistSettings = createEffect(
     () =>
       this.actions$.pipe(
@@ -102,6 +103,7 @@ export class SettingsEffects {
     { dispatch: false }
   );
 
+  // actionSettingsChangeTheme: 主题改变后的触发 Action
   updateTheme = createEffect(
     () =>
       merge(INIT, this.actions$.pipe(ofType(actionSettingsChangeTheme))).pipe(
@@ -112,6 +114,8 @@ export class SettingsEffects {
           const toRemove = Array.from(classList).filter((item: string) =>
             item.includes('-theme')
           );
+          // console.log('classList', classList); // cdk-overlay-container black-theme
+          // console.log('effectiveTheme', effectiveTheme); // 如果选择了 black 主题: black-theme
           if (toRemove.length) {
             classList.remove(...toRemove);
           }

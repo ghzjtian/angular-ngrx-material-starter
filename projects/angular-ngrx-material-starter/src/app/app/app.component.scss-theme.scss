@@ -6,6 +6,7 @@
   $warn: map-get($theme, warn);
 
   mat-sidenav-container {
+    // 头部栏的颜色.
     mat-toolbar {
       button {
         &.active {
@@ -19,6 +20,7 @@
       }
     }
 
+    // 侧边栏的导航按钮.
     mat-sidenav {
       .mat-list-item {
         &.active {
