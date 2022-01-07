@@ -23,6 +23,7 @@ export const initialState: SettingsState = {
   hour: 0
 };
 
+// reducer 中绑定 action 和对应的动作
 const reducer = createReducer(
   initialState,
   on(
@@ -33,7 +34,12 @@ const reducer = createReducer(
     actionSettingsChangeAnimationsPage,
     actionSettingsChangeAnimationsElements,
     actionSettingsChangeHour,
-    (state, action) => ({ ...state, ...action }) // 相当于复制一份 state 和 action
+    // 用新 Action 的值去修改 state 中的值
+    // (state, action) => ({ ...state, ...action }) // 相当于复制一份 state 和 action
+    (state, action) => {
+      const result = { ...state, ...action };
+      return result;
+    }
   ),
   on(
     actionSettingsChangeAnimationsPageDisabled,
