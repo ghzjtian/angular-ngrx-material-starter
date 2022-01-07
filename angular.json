@@ -32,7 +32,13 @@
               "projects/angular-ngrx-material-starter/src/styles-app-loading.scss",
               "projects/angular-ngrx-material-starter/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": true,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -82,19 +88,24 @@
                   "maximumError": "4kb"
                 }
               ]
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-ngrx-material-starter:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "angular-ngrx-material-starter:build:production"
+            },
+            "development": {
+              "browserTarget": "angular-ngrx-material-starter:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

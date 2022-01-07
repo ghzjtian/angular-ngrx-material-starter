@@ -121,9 +121,11 @@ export function httpLoaderFactory(http: HttpClient) {
     MatButtonModule,
 
     // ngrx
+    // 注册并绑定 reducers
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([
+      // 一开始就会加载下面的 effects
       AuthEffects,
       SettingsEffects,
       GoogleAnalyticsEffects

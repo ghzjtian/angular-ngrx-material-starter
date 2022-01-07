@@ -72,6 +72,8 @@ export class AppComponent implements OnInit {
     this.isAuthenticated$ = this.store.pipe(select(selectIsAuthenticated));
     this.stickyHeader$ = this.store.pipe(select(selectSettingsStickyHeader));
     this.language$ = this.store.pipe(select(selectSettingsLanguage));
+
+    // 收到最新的 theme，并改变 view 中的 theme class 
     this.theme$ = this.store.pipe(select(selectEffectiveTheme));
   }
 

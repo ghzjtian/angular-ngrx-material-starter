@@ -21,6 +21,7 @@ export const reducers: ActionReducerMap<AppState> = {
   router: routerReducer
 };
 
+// TODO, 了解这个的生命周期和用法
 export const metaReducers: MetaReducer<AppState>[] = [
   initStateFromLocalStorage
 ];

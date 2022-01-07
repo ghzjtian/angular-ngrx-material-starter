@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open --liveReload=false",
+    "start": "ng serve --liveReload=false",
     "start:prod": "npm run build:prod && npm run server",
     "build": "ng build",
     "build:prod": "ng build --configuration production",
