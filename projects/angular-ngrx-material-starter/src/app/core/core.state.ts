@@ -21,6 +21,8 @@ export const reducers: ActionReducerMap<AppState> = {
   router: routerReducer
 };
 
+// // Developers can think of meta-reducers as hooks into the action->reducer pipeline. Meta-reducers allow developers to pre-process actions before normal reducers are invoked.
+  // 参考: [Meta-reducers](https://ngrx.io/guide/store/metareducers)
 export const metaReducers: MetaReducer<AppState>[] = [
   initStateFromLocalStorage
 ];

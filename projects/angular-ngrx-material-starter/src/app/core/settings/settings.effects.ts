@@ -55,7 +55,7 @@ export class SettingsEffects {
     }, 60_000)
   );
 
-  // 保存最新的 setting 数据
+  // 保存最新的 setting 数据到 localStorage 中.
   persistSettings = createEffect(
     () =>
       this.actions$.pipe(

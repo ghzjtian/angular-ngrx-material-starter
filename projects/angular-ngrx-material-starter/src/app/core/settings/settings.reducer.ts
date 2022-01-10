@@ -23,7 +23,7 @@ export const initialState: SettingsState = {
   hour: 0
 };
 
-// reducer 中绑定 action 和对应的动作
+// reducer 中绑定 action 和保存值到 store 中
 const reducer = createReducer(
   initialState,
   on(

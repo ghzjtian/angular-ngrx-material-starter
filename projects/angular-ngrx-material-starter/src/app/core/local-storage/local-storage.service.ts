@@ -34,7 +34,9 @@ export class LocalStorageService {
               );
               return;
             }
+            // 在 state 中添加了新的属性，如果属性没有值，则赋予新的 Object
           currentStateRef[key] = currentStateRef[key] || {};
+          // 把 currentStateRef 指向新的 Object
           currentStateRef = currentStateRef[key];
         });
       }
