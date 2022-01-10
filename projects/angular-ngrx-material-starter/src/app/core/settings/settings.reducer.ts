@@ -35,7 +35,7 @@ const reducer = createReducer(
     actionSettingsChangeAnimationsElements,
     actionSettingsChangeHour,
     // 用新 Action 的值去修改 state 中的值
-    // (state, action) => ({ ...state, ...action }) // 相当于复制一份 state 和 action
+    // (state, action) => ({ ...state, ...action }) // 用 action 的值去更新 state 的值
     (state, action) => {
       const result = { ...state, ...action };
       return result;

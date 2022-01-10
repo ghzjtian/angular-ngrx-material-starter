@@ -46,7 +46,7 @@ export class SettingsEffects {
   changeHour = this.ngZone.runOutsideAngular(() =>
     setInterval(() => {
       const hour = new Date().getHours();
-      if (hour !== this.hour) {
+      if (hour !== this.hour) { // 如果小时有改变，就发出一个通知 action.
         this.hour = hour;
         this.ngZone.run(() =>
           this.store.dispatch(actionSettingsChangeHour({ hour }))
@@ -69,7 +69,7 @@ export class SettingsEffects {
           actionSettingsChangeTheme
         ),
         withLatestFrom(this.store.pipe(select(selectSettingsState))),
-        // tap 一般做不会修改结果的操作. 如保存，调试
+        // tap 一般做一些不会修改结果的操作. 如保存，打印调试
         tap(([action, settings]) =>
           this.localStorageService.setItem(SETTINGS_KEY, settings)
         )
@@ -104,12 +104,17 @@ export class SettingsEffects {
     { dispatch: false }
   );
 
-  // actionSettingsChangeTheme: 主题改变后的触发 Action
+  // actionSettingsChangeTheme: 主题改变后的触发(修改 overlayContainer 的 theme)
   updateTheme = createEffect(
-    () =>
     // 1.加上 INIT, 表示创建时就触发这个动作
     // 2.一旦收到 actionSettingsChangeTheme ， 也会触发.
-      merge(INIT, this.actions$.pipe(ofType(actionSettingsChangeTheme))).pipe(
+    () =>
+      merge(INIT, this.actions$.pipe(
+        ofType(
+          actionSettingsChangeTheme,
+          actionSettingsChangeAutoNightMode
+          )
+        )).pipe(
         // 会组合上面的 action 和下面的 theme 名字. 都有值后才一起触发后面的订阅.
         withLatestFrom(this.store.pipe(select(selectEffectiveTheme))),
         tap(([action, effectiveTheme]) => {
@@ -118,8 +123,6 @@ export class SettingsEffects {
           const toRemove = Array.from(classList).filter((item: string) =>
             item.includes('-theme')
           );
-          console.log('classList', classList); // cdk-overlay-container black-theme
-          console.log('effectiveTheme:', effectiveTheme, ' action:' , action); // 如果选择了 black 主题: black-theme
           if (toRemove.length) {
             classList.remove(...toRemove);
           }
@@ -168,6 +171,5 @@ export class SettingsEffects {
     private translateService: TranslateService,
     private ngZone: NgZone
   ) {
-    console.log('SettingsEffects constructor.');
   }
 }

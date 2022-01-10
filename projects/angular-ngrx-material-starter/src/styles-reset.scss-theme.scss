@@ -18,6 +18,11 @@
     background-color: mat.get-color-from-palette($accent, lighter);
   }
 
+  // 因在 黑暗模式/白天模式 下的 mat-option 看不太清楚，所以这里要自定义.
+  .mat-option.mat-selected {
+    color: mat.get-color-from-palette($accent, lighter-contrast) !important;
+  }
+
   p {
     a {
       color: mat.get-color-from-palette($accent);
