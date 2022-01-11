@@ -51,6 +51,7 @@ export function httpLoaderFactory(http: HttpClient) {
         useFactory: httpLoaderFactory,
         deps: [HttpClient]
       },
+      defaultLanguage: 'en',
       isolate: true
     }),
     EffectsModule.forFeature([

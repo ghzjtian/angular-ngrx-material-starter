@@ -42,6 +42,7 @@ const reducer = createReducer(
     }
   ),
   on(
+    // 目前如果是 IE，Edge， 或者是 safari, 会 disabled pageAnimations.
     actionSettingsChangeAnimationsPageDisabled,
     (state, { pageAnimationsDisabled }) => ({
       ...state,
