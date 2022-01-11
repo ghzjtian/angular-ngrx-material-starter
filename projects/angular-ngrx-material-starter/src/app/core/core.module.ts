@@ -123,7 +123,7 @@ export function httpLoaderFactory(http: HttpClient) {
     // ngrx
     // 注册并绑定 reducers
     StoreModule.forRoot(reducers, { metaReducers }),
-    StoreRouterConnectingModule.forRoot(),
+    StoreRouterConnectingModule.forRoot(),  // 为 routerReducer
     EffectsModule.forRoot([
       // 一开始就会加载下面的 effects
       AuthEffects,

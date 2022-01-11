@@ -20,6 +20,7 @@
     </mat-select>
 </nav>
 
+<!-- 根据 o(outlet) 去显示是否要显示动画  -->
 <div [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig?.path">
   <router-outlet #o="outlet"></router-outlet>
 </div>

@@ -35,7 +35,7 @@ const reducer = createReducer(
       item.id === todo.id ? { ...item, done: !item.done } : item
     )
   })),
-  on(todoAction.actionTodosRemoveDone, (state, todo) => ({
+  on(todoAction.actionTodosRemoveDone, (state, todo) => ({  // 移除 done 的 todo.
     ...state,
     items: state.items.filter((item: Todo) => !item.done)
   })),

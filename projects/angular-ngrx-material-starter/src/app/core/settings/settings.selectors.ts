@@ -9,6 +9,7 @@ export const selectSettings = createSelector(
   (state: SettingsState) => state
 );
 
+// 只会关注 stickyHeader 的变化.
 export const selectSettingsStickyHeader = createSelector(
   selectSettings,
   (state: SettingsState) => state.stickyHeader
