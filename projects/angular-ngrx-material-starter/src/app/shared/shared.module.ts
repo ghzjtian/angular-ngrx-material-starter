@@ -116,6 +116,7 @@ import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
 })
 export class SharedModule {
   constructor(faIconLibrary: FaIconLibrary) {
+    // 具体用法: [angular-fontawesome](https://github.com/FortAwesome/angular-fontawesome)
     faIconLibrary.addIcons(
       faGithub,
       faMediumM,

@@ -37,6 +37,7 @@ export const selectAuthState = createFeatureSelector<AppState, AuthState>(
   'auth'
 );
 
+// 从 AppState 中拿 SettingsState 的数据
 export const selectSettingsState = createFeatureSelector<
   AppState,
   SettingsState

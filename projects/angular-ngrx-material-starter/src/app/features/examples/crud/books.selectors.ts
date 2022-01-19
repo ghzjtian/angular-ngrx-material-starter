@@ -18,5 +18,5 @@ export const selectBooksEntities = createSelector(selectBooks, selectEntities);
 export const selectSelectedBook = createSelector(
   selectBooksEntities,
   selectRouterState,
-  (entities, params) => params && entities[params.state.params.id]
+  (entities, params) => params && entities[params.state.params.id]  // 如果 params 有值，则返回 entities[params.state.params.id] 的值
 );

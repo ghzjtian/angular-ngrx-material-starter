@@ -19,7 +19,7 @@ export class ExamplesEffects {
     () => () =>
       this.store.pipe(
         select(selectSettingsLanguage),
-        distinctUntilChanged(),
+        distinctUntilChanged(), // 数据改变了才触发
         tap((language) => this.translateService.use(language))
       ),
     { dispatch: false }

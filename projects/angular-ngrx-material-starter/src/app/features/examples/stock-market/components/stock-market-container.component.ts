@@ -24,6 +24,7 @@ export class StockMarketContainerComponent implements OnInit {
 
   ngOnInit() {
     this.stocks$ = this.store.pipe(select(selectStockMarket));
+    // 第一次时触发 onSymbolValue 方法, 取得初始的 symbol 值
     this.stocks$
       .pipe(take(1))
       .subscribe((stocks) => this.onSymbolValue(stocks.symbol));
