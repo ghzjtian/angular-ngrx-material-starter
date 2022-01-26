@@ -3,11 +3,13 @@ import { createSelector } from '@ngrx/store';
 import { SettingsState } from './settings.model';
 import { selectSettingsState } from '../core.state';
 
+// createSelector 是在 createFeatureSelector 的基础上，做一些定制处理.
 export const selectSettings = createSelector(
   selectSettingsState,
   (state: SettingsState) => state
 );
 
+// 只会关注 stickyHeader 的变化.
 export const selectSettingsStickyHeader = createSelector(
   selectSettings,
   (state: SettingsState) => state.stickyHeader

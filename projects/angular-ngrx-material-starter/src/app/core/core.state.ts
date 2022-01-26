@@ -22,6 +22,8 @@ export const reducers: ActionReducerMap<AppState> = {
 };
 
 // TODO, 了解这个的生命周期和用法
+// // Developers can think of meta-reducers as hooks into the action->reducer pipeline. Meta-reducers allow developers to pre-process actions before normal reducers are invoked.
+  // 参考: [Meta-reducers](https://ngrx.io/guide/store/metareducers)
 export const metaReducers: MetaReducer<AppState>[] = [
   initStateFromLocalStorage
 ];
@@ -36,6 +38,7 @@ export const selectAuthState = createFeatureSelector<AppState, AuthState>(
   'auth'
 );
 
+// 从 AppState 中拿 SettingsState 的数据
 export const selectSettingsState = createFeatureSelector<
   AppState,
   SettingsState

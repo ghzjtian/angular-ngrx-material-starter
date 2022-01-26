@@ -11,6 +11,8 @@ export const AUTH_KEY = 'AUTH';
 
 @Injectable()
 export class AuthEffects {
+
+  // 持久化
   login = createEffect(
     () =>
       this.actions$.pipe(

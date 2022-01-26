@@ -4,6 +4,8 @@
       <h1 class="main-heading">{{ 'anms.examples.form.title' | translate }}</h1>
     </div>
   </div>
+
+  <!-- TODO, 只是为了 onDestroy 时自动 unscribe ? -->
   <ng-container *ngIf="formValueChanges$ | async as updatedForm">
   </ng-container>
   <form [formGroup]="form" (ngSubmit)="submit()">

@@ -19,12 +19,13 @@ export class ExamplesEffects {
     () => () =>
       this.store.pipe(
         select(selectSettingsLanguage),
-        distinctUntilChanged(),
+        distinctUntilChanged(), // 数据改变了才触发
         tap((language) => this.translateService.use(language))
       ),
     { dispatch: false }
   );
 
+  // 如果 语言/路由 有变化，则改变 Tab Title 的值.
   setTitle = createEffect(
     () =>
       merge(

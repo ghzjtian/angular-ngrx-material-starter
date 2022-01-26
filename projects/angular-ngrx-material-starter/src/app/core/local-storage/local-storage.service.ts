@@ -9,7 +9,7 @@ export class LocalStorageService {
   constructor() {}
 
   static loadInitialState() {
-    return Object.keys(localStorage).reduce((state: any, storageKey) => {
+    return Object.keys(localStorage).reduce((state: any, storageKey, newIndex) => {
       if (storageKey.includes(APP_PREFIX)) {
         const stateKeys = storageKey
           .replace(APP_PREFIX, '')
@@ -27,13 +27,16 @@ export class LocalStorageService {
           );
         let currentStateRef = state;
         stateKeys.forEach((key, index) => {
+          // 只获取最后的那个 key 的数据, 如 TODOS
           if (index === stateKeys.length - 1) {
             currentStateRef[key] = JSON.parse(
               localStorage.getItem(storageKey) || '{}'
-            );
-            return;
-          }
+              );
+              return;
+            }
+            // 在 state 中添加了新的属性，如果属性没有值，则赋予新的 Object
           currentStateRef[key] = currentStateRef[key] || {};
+          // 把 currentStateRef 指向新的 Object
           currentStateRef = currentStateRef[key];
         });
       }

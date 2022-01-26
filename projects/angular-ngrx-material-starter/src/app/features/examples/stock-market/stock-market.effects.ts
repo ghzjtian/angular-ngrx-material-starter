@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
@@ -29,7 +30,8 @@ export class StockMarketEffects {
           debounceTime(debounce),
           switchMap((action) =>
             this.service.retrieveStock(action.symbol).pipe(
-              map((stock) => actionStockMarketRetrieveSuccess({ stock })),
+              // map((stock) => actionStockMarketRetrieveSuccess({ stock })),
+              map((stock) => actionStockMarketRetrieveError( new HttpErrorResponse({error: {message : 'test error'}}) )),
               catchError((error) =>
                 of(actionStockMarketRetrieveError({ error }))
               )

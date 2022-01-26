@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 })
 export class RtlSupportDirective implements OnInit, OnDestroy {
   private subscription: Subscription | undefined;
+  
   constructor(private el: ElementRef, public translate: TranslateService) {
     el.nativeElement.style.textAlign =
       translate.currentLang === 'he' || translate.currentLang === 'ar'

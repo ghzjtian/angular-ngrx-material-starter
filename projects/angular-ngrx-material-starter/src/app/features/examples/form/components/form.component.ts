@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
-import { filter, take, tap } from 'rxjs/operators';
+import { debounceTime, filter, take, tap } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
@@ -52,12 +52,17 @@ export class FormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+// 如果 form Value 有改变，就发出更新通知.
     this.formValueChanges$ = this.form.valueChanges.pipe(
+      debounceTime(500),
       filter((form: Form) => form.autosave),
       tap((updatedForm) => this.update(updatedForm))
     );
+
+    // Component 初始化时, 只取一次 selectFormState 的值.
     this.store
       .pipe(select(selectFormState), take(1))
+      .pipe(tap((value) => console.log(value)))
       .subscribe((form) => this.form.patchValue(form.form));
   }
 

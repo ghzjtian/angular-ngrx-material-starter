@@ -123,7 +123,7 @@ export function httpLoaderFactory(http: HttpClient) {
     // ngrx
     // 注册并绑定 reducers
     StoreModule.forRoot(reducers, { metaReducers }),
-    StoreRouterConnectingModule.forRoot(),
+    StoreRouterConnectingModule.forRoot(),  // 为 routerReducer
     EffectsModule.forRoot([
       // 一开始就会加载下面的 effects
       AuthEffects,
@@ -143,7 +143,9 @@ export function httpLoaderFactory(http: HttpClient) {
         provide: TranslateLoader,
         useFactory: httpLoaderFactory,
         deps: [HttpClient]
-      }
+      },
+      // useDefaultLang: true,
+      defaultLanguage: 'en',  // 设置默认的语言为 en, 并且因为 useDefaultLang 默认为 true, 则如果对应语言没有相关翻译时会用 en 去做翻译.
     })
   ],
   declarations: [],

@@ -20,7 +20,7 @@ const reducer = createReducer(
   initialState,
   on(todoAction.actionTodosAdd, (state, todo) => ({
     ...state,
-    items: [
+    items: [  // 把新增的放在最上面, 然后再替换旧的 state.
       {
         id: todo.id,
         name: todo.name,
@@ -35,7 +35,7 @@ const reducer = createReducer(
       item.id === todo.id ? { ...item, done: !item.done } : item
     )
   })),
-  on(todoAction.actionTodosRemoveDone, (state, todo) => ({
+  on(todoAction.actionTodosRemoveDone, (state, todo) => ({  // 移除 done 的 todo.
     ...state,
     items: state.items.filter((item: Todo) => !item.done)
   })),

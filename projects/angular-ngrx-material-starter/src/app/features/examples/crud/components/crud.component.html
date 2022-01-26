@@ -38,6 +38,7 @@
         </span>
       </span>
 
+      <!-- Editing 的状态, 新增或修改 -->
       <form [formGroup]="bookFormGroup" [style.display]="isEditing ? 'block' : 'none'"
         [ngClass]="routeAnimationsElements">
         <div class="row">
@@ -83,6 +84,7 @@
       </form>
 
       <ng-container *ngIf="!isEditing">
+        <!-- 显示选择的 Book 信息 -->
         <div [ngClass]="routeAnimationsElements" *ngIf="selectedBook$ | async as selectedBook; else noSelectedBookTmpl">
           <h3>{{ selectedBook.title }}</h3>
           <mat-divider></mat-divider>

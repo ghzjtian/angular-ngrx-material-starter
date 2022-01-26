@@ -58,6 +58,7 @@ export class TodosContainerComponent implements OnInit {
 
   onAddTodo() {
     this.store.dispatch(todoActions.actionTodosAdd(this.newTodo));
+    
     const addedMessage = this.translateService.instant(
       'anms.examples.todos.added.notification',
       { name: this.newTodo }

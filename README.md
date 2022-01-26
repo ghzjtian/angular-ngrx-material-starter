@@ -1,3 +1,18 @@
+# GLB Gallery
+
+## 参考
+* [angular-ngrx-material-starter](https://github.com/ghzjtian/angular-ngrx-material-starter)
+* [图片浏览 light gallery](https://www.lightgalleryjs.com/docs/angular/)
+* [图片上传 ngx-dropzone](https://github.com/peterfreeman/ngx-dropzone)
+
+
+
+
+
+
+
+***
+
 # Angular 12, NgRx and Angular Material Starter
 
 by [@tomastrajan](https://twitter.com/tomastrajan)
